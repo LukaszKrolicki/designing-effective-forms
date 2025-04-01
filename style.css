@@ -1,3 +1,11 @@
 .modal {
     background: #c6d0ff7a;
 }
+
+.btn-primary {
+    color: #eaeaea !important;
+}
+
+body {
+    background: #eaeaea;
+}

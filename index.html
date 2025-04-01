@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,121 +8,153 @@
     <script src="script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" defer></script>
-
     <title>Efektywne formularze</title>
 </head>
-
 <body>
-    <div class="container">
-        <h1>Uzupełnij formularz</h1>
-        <form id="form">
-            <div class="mb-3">
-                <label for="firstName" class="form-label">Imię</label>
-                <input type="text" class="form-control" id="firstName" placeholder="Wpisz imię" required>
-            </div>
-            <div class="mb-3">
-                <label for="lastName" class="form-label">Nazwisko</label>
-                <input type="text" class="form-control" id="lastName" placeholder="Wpisz nazwisko" required>
-            </div>
-            <div class="mb-3">
-                <label for="street" class="form-label">Ulica</label>
-                <input type="text" class="form-control" id="street" placeholder="Wpisz ulicę" required>
-            </div>
-            <div class="mb-3">
-                <label for="country" class="form-label">Kraj</label>
-                <select class="form-select" id="country" required>
-                    <option value="">Wybierz kraj</option>
-                    <!-- Options will be filled by JavaScript -->
-                </select>
-            </div>
-            <div class="row mb-3">
-                <label for="phoneNumber" class="form-label">Numer telefonu komórkowego</label>
+<div class="container">
+    <h1 class="text-center my-4">Formularz 📝</h1>
+    <form id="form">
+        <!-- Imię and Nazwisko -->
+        <div class="row mb-3">
+            <div class="col">
                 <div class="input-group">
-                    <select class="form-select" id="countryCode" aria-label="Wybierz numer kierunkowy">
-                        <option selected>Wybierz...</option>
-                        <option value="+48">+48 (Polska)</option>
-                        <option value="+1">+1 (Stany Zjednoczone)</option>
-                        <!-- Dodaj więcej opcji, jeśli jest to potrzebne -->
-                    </select>
-                    <input type="text" class="form-control" id="phoneNumber" placeholder="Wpisz numer komórkowy"
-                        required>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="city" class="form-label">Miasto</label>
-                <input type="text" class="form-control" id="city" placeholder="Wpisz miasto" required>
-            </div>
-            <div class="mb-3">
-                <label for="zipCode" class="form-label">Kod pocztowy</label>
-                <input type="text" class="form-control" id="zipCode" placeholder="Wpisz kod pocztowy" required>
-            </div>
-            <div class="mb-3">
-                <label for="shippingMethod" class="form-label">Rodzaj przesyłki</label>
-                <select class="form-select" id="shippingMethod" required>
-                    <option value="">Wybierz rodzaj przesyłki</option>
-                    <option value="DPD">DPD</option>
-                    <option value="InPost">InPost</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="paymentMethod" class="form-label">Rodzaj płatności</label>
-                <select class="form-select" id="paymentMethod" required>
-                    <option value="">Wybierz rodzaj płatności</option>
-                    <option value="karta">Karta</option>
-                    <option value="blik">BLIK</option>
-                    <option value="pośrednik">Pośrednik płatności</option>
-                </select>
-            </div>
-
-            <!-- Dodatkowe pola, np. dane do faktury -->
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="vatUE">
-                <label class="form-check-label" for="vatUE">VAT UE</label>
-            </div>
-            <div class="mb-3">
-                <label for="vatNumber" class="form-label">VAT Number</label>
-                <input type="text" class="form-control" id="vatNumber" aria-describedby="vatHelp">
-                <div id="vatHelp" class="form-text">Kod kraju państwa członkowskiego i seria cyfr unikalnych dla tego
-                    podmiotu gospodarczego.</div>
-            </div>
-
-            <div class="mb-3">
-                <label for="invoiceData" class="form-label">Dane do faktury</label>
-                <textarea class="form-control" id="invoiceData" rows="3" placeholder="Wpisz dane do faktury"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#form-feedback-modal">submit</button>
-        </form>
-    </div>
-
-
-    <!-- Raport kliknięć -->
-    <div class="modal fade" id="form-feedback-modal" tabindex="-1" aria-labelledby="raportModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="raportModalLabel">Raport kliknięć</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Ilość kliknięć myszką: <span id="click-count">0</span></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <span class="input-group-text" id="firstNamePrefix">*👤 Imię i nazwisko</span>
+                    <input type="text" class="form-control" id="firstName" aria-label="Imię i nazwisko" required>
                 </div>
             </div>
         </div>
-    </div>
-</body>
 
+        <!-- Kraj and Kod pocztowy -->
+        <div class="row mb-3">
+            <div class="col">
+                <div class="input-group">
+                    <span class="input-group-text" id="countryPrefix">*🌍 Kraj</span>
+                    <select class="form-select" id="country" aria-label="Kraj" required></select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group">
+                    <span class="input-group-text" id="zipCodePrefix">*📍 Kod pocztowy</span>
+                    <input type="text" class="form-control" id="zipCode" aria-label="Kod pocztowy" required>
+                </div>
+            </div>
+        </div>
+
+        <!-- Miasto and Ulica -->
+        <div class="row mb-3">
+            <div class="col">
+                <div class="input-group">
+                    <span class="input-group-text" id="cityPrefix">*🏙️ Miasto</span>
+                    <input type="text" class="form-control" id="city" aria-label="Miasto" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group">
+                    <span class="input-group-text" id="streetPrefix">*🏠 Ulica</span>
+                    <input type="text" class="form-control" id="street" aria-label="Ulica" required>
+                </div>
+            </div>
+        </div>
+
+        <!-- Numer telefonu -->
+        <div class="mb-3">
+            <label for="phone" class="form-label">*📱 Numer telefonu</label>
+            <div class="input-group">
+                <span class="input-group-text" id="countryFlag">🇵🇱</span>
+                <span class="input-group-text" id="phonePrefix">+48</span>
+                <input type="text" class="form-control" id="phone" pattern="\d{9}" title="Numer telefonu powinien składać się z 9 cyfr" aria-label="Numer telefonu" required>
+            </div>
+        </div>
+
+        <!-- Email and Hasło -->
+        <div class="row mb-3">
+            <div class="col">
+                <div class="input-group">
+                    <span class="input-group-text" id="emailPrefix">*📧 Email</span>
+                    <input type="email" class="form-control" id="email" aria-label="Email" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group">
+                    <span class="input-group-text" id="passwordPrefix">*🔑 Hasło</span>
+                    <input type="password" class="form-control" id="password" aria-label="Hasło" required>
+                </div>
+            </div>
+        </div>
+
+        <!-- VAT UE and Numer VAT -->
+        <div class="mb-3 row">
+            <div class="col-sm-12 d-flex align-items-center">
+                <div class="input-group">
+                    <div class="input-group-text">
+                        <input type="checkbox" class="form-check-input" id="vatUE">
+                        <label for="vatUE" class="ms-2">VAT UE</label>
+                    </div>
+                    <span class="input-group-text">*💼 Numer VAT</span>
+                    <input type="text" class="form-control" id="vatNumber" aria-label="Numer VAT">
+                </div>
+            </div>
+        </div>
+
+        <!-- Rodzaj przesyłki -->
+        <div class="mb-3 row">
+            <label class="form-label col-sm-2">*🚚 Rodzaj przesyłki</label>
+            <div class="col-sm-10">
+                <input type="radio" id="dpd" name="shipping" value="DPD" checked>
+                <label for="dpd">DPD</label>
+                <input type="radio" id="inpost" name="shipping" value="InPost">
+                <label for="inpost">InPost</label>
+            </div>
+        </div>
+
+        <!-- Rodzaj płatności -->
+        <div class="mb-3 row">
+            <label class="form-label col-sm-2">*💳 Rodzaj płatności</label>
+            <div class="col-sm-10" id="paymentMethods">
+                <button type="button" class="btn btn-outline-primary btn-lg me-2 btn-primary" data-value="karta">💳 Karta</button>
+                <button type="button" class="btn btn-outline-primary btn-lg me-2" data-value="blik">🔢 BLIK</button>
+                <button type="button" class="btn btn-outline-primary btn-lg" data-value="posrednik">🔗 Pośrednik</button>
+            </div>
+        </div>
+
+        <!-- Faktura  -->
+        <div>
+            <div class="col-auto">
+                <h2>🧾 Faktura</h2><button id="toggleFaktura" class="btn btn-secondary mb-3">👁️‍🗨️ Pokaż/Ukryj Fakture</button>
+            </div>
+            <div id="faktura" style="display: none;">
+                <p><strong>Imię i nazwisko:</strong> <span id="fakturaFirstName"></span></p>
+                <p><strong>Kraj:</strong> <span id="fakturaCountry"></span></p>
+                <p><strong>Kod pocztowy:</strong> <span id="fakturaZipCode"></span></p>
+                <p><strong>Miasto:</strong> <span id="fakturaCity"></span></p>
+                <p><strong>Ulica:</strong> <span id="fakturaStreet"></span></p>
+                <p><strong>Numer telefonu:</strong> <span id="fakturaPhone"></span></p>
+                <p><strong>Email:</strong> <span id="fakturaEmail"></span></p>
+                <p><strong>Vat UE:</strong> <span id="fakturaVatUE"></span></p>
+                <p><strong>Numer VAT:</strong> <span id="fakturaVatNumber"></span></p>
+                <p><strong>Rodzaj przesyłki:</strong> <span id="fakturaShipping"></span></p>
+                <p><strong>Rodzaj płatności:</strong> <span id="fakturaPayment"></span></p>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-success btn-lg" data-bs-toggle="modal"
+                data-bs-target="#form-feedback-modal">🔵 Wyślij</button>
+    </form>
+</div>
+
+<div class="modal fade" id="form-feedback-modal" tabindex="-1" aria-labelledby="formFeedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="formFeedbackModalLabel">Raport kliknięć</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Liczba kliknięć: <span id="click-count">0</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
 </html>
